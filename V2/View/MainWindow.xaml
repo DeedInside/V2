@@ -1,0 +1,132 @@
+﻿<Window x:Class="V2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450px" Width="800px">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0" Grid.Column="0"
+                    Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <TabItem Header="DockPanel">
+                <DockPanel>
+                    <Button DockPanel.Dock="Top" Content="button top"
+                            FontSize="45px" Click="Num"/>
+                    <Button DockPanel.Dock="Left"  Content="button 1" 
+                            FontSize="45px"/>
+                    <Button DockPanel.Dock="Right" Content="button 2"
+                            FontSize="45px"/>
+                    <Button Content="button 3" FontSize="45px"/>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="CheckBox">
+                <ScrollViewer>
+                    <StackPanel>
+                        <StackPanel>
+                            <RadioButton Content="Выбор 1" FontSize="45px"/>
+                            <RadioButton Content="Выбор 2" FontSize="45px"/>
+                            <RadioButton Content="Выбор 3" FontSize="45px"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton Content="Выбор 1" FontSize="45px"/>
+                            <RadioButton Content="Выбор 2" FontSize="45px"/>
+                            <RadioButton Content="Выбор 3" FontSize="45px"/>
+                        </StackPanel>
+                        <CheckBox Content="Выбор 1" FontSize="45px"/>
+                        <CheckBox Content="Выбор 2" FontSize="45px"/>
+                        <CheckBox Content="Выбор 3" FontSize="45px"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="GroupBox">
+                <GroupBox>
+                    <GroupBox.Header>
+                        <Button Content="BOX"/>
+                    </GroupBox.Header>
+                    <StackPanel>
+                        <Button Content="ЖМЯК 1" FontSize="45px"/>
+                        <Button Content="ЖМЯК 1" FontSize="45px"/>
+                        <Button Content="ЖМЯК 1" FontSize="45px"/>
+                    </StackPanel>
+                </GroupBox>
+            </TabItem>
+            <TabItem Header="Expander">
+                <Expander Header="окно 1">
+                    <StackPanel>
+                        <Label>11111</Label>
+                        <Label>22222</Label>
+                        <Label>33333</Label>
+                        <Label>44444</Label>
+                    </StackPanel>
+                </Expander>
+            </TabItem>
+            <TabItem Header="TEXT">
+                <StackPanel>
+                    <TextBlock Name="TextBlock" FontSize="45px">
+                        123123123123123
+                    </TextBlock>
+                    <TextBox SpellCheck.IsEnabled="True" 
+                             Language="ru-ru" TextWrapping="Wrap"
+                             FontSize="45px">
+                        купи продай прадай 
+                    </TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="ListBox">
+                <ListBox FontSize="30" Name="MyListBox" SelectionChanged="MyListBox_SelectionChanged"/>
+            </TabItem>
+            <TabItem Header="ListView">
+                <StackPanel>
+                    <ListView FontSize="40" Name="MyListView" SelectionChanged="MyListView_SelectionChanged" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="id" 
+                                                DisplayMemberBinding="{Binding Path=Id}"/>
+                                <GridViewColumn Header="name" 
+                                                DisplayMemberBinding="{Binding Path=Name}"/>
+                                <GridViewColumn Header="email" 
+                                                DisplayMemberBinding="{Binding Path=Email}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <DockPanel>
+                        <Label Content="id пользователя"/>
+                        <TextBlock Name="TextId" 
+                                   VerticalAlignment="Center"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Имя пользователя"/>
+                        <TextBlock Name="TextName" 
+                                   VerticalAlignment="Center"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Email пользователя"/>
+                        <TextBlock Name="TextEmail" 
+                                   VerticalAlignment="Center"/>
+                    </DockPanel>
+                    <StackPanel>
+                        <TextBox Name="InputTextId"/>
+                        <TextBox Name="InputTextName"/>
+                        <TextBox Name="InputTextEmail"/>
+                        <Button Content="add" Click="addItemInList"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="DataGrid" >
+                <DataGrid FontSize="40" Name="MyDataGrid"/>
+            </TabItem>
+        </TabControl>
+        <Canvas Grid.Column="1" Grid.Row="2"/>
+    </Grid>
+</Window>
