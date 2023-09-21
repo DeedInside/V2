@@ -125,6 +125,8 @@
             </TabItem>
             <TabItem Header="DataGrid" >
                 <DataGrid FontSize="40" Name="MyDataGrid"/>
+                
+                
             </TabItem>
         </TabControl>
         <Canvas Grid.Column="1" Grid.Row="2"/>
